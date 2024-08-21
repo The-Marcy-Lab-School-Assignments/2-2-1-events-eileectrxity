@@ -31,8 +31,8 @@
       "FrScTe2": 0
     },
     "Modify Tests": {
-      "MoTe1": 0,
-      "MoTe2": 0,
+      "MoTe1": 1,
+      "MoTe2": 1,
       "MoTe3": 0,
       "MoTe4": 0,
       "MoTe5": 0,
@@ -44,7 +44,7 @@
   },
   "humanReadable": {
     "From Scratch Tests": "0/2",
-    "finalTestScore": "FINAL SCORE: 0/11",
-    "Modify Tests": "0/9"
+    "finalTestScore": "FINAL SCORE: 2/11",
+    "Modify Tests": "2/9"
   }
 }
