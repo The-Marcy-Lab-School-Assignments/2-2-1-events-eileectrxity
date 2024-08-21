@@ -40,10 +40,20 @@ const handleKeydown = (event) => {
   document.querySelector('#keydown-tracker').textContent = `You pressed ${event.code}`;
 };
 
-// We've started this one for you
+//QUESTION 4: modify handleDelegation to only update the span's text content if a button is clicked
+// //working solution with comments- IGNORE
+// const handleDelegation = (event) => {
+//   // console.log('delegation div just clicked; this is the event:', event, 'the current event target:', event.currentTarget, 'the event target:', event.target, 'and the event target el tag type:', event.target.tagName);
+//   const resultSpan = document.querySelector('#delegation-result');
+//   if (event.target.tagName === "BUTTON") { //could also have checked for if (event.target.nodeName === "BUTTON") or if (event.target.matches("button"), which checks if the css selector of the node el clicked (event target) matches/is 'button' or '.grid-item' --> the best practice way of doing it
+//     resultSpan.textContent = event.target.textContent; //updating the html so that str "Last thing clicked: [__identifying text of event.target button clicked --> up, right, middle, left, or down__]" is rendered
+//   }
+// };
+
+// //polished q4 solution simplified without comments
 const handleDelegation = (event) => {
   const resultSpan = document.querySelector('#delegation-result');
-  resultSpan.textContent = event.target.textContent;
+  if (event.target.matches('button')) resultSpan.textContent = event.target.textContent;
 };
 
 const addNewRandomNumber = () => {
@@ -62,7 +72,8 @@ const main = () => {
   //q3: replaced the html inline handler with this regular event listener on #inline-example button node, handling with clickCounterHandler func from q1
   const inlineButton = document.querySelector('#inline-example');
   inlineButton.addEventListener('click', clickCounterHandler);
-  
+
+  //q4: kept event listener the same, just modified delegationContainer's event handler outside of main
   const delegationContainer = document.querySelector('#delegation');
   delegationContainer.addEventListener('click', handleDelegation);
 
