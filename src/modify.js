@@ -26,7 +26,18 @@ const clickCounterHandler = (event) => {
  } else event.target.textContent = `I've been clicked ${clickCount} times!`;
 };
 
-const handleKeydown = () => {
+//QUESTION 2: modify handleKeydown to track the last key code pressed and update the text content of the p tag with id #keydown-tracker with a str of the specific key pressed
+// //working solution with comments- IGNORE
+// const handleKeydown = (event) => {
+//   // console.log('key just pressed; this is the event:', event, 'the event target:', event.target, 'and the event type:', event.type);
+//   // console.log('this key was pressed:', event.code); //logging the exact key pressed
+//   const keydownTracker = document.querySelector('#keydown-tracker'); //getting the right p tag node
+//   keydownTracker.textContent = `You pressed ${event.code}`;
+// };
+
+// //polished q2 solution simplified without comments
+const handleKeydown = (event) => {
+  document.querySelector('#keydown-tracker').textContent = `You pressed ${event.code}`;
 };
 
 // We've started this one for you
@@ -44,6 +55,9 @@ const main = () => {
   //q1: added an event listener on the #click-button node for click events, handling with clickCounterHandler func
   const clickButton = document.querySelector('#click-button');
   clickButton.addEventListener('click', clickCounterHandler);
+  
+  //q2: added an event listener on the document body for keydown events, handling with handleKeydown func
+  document.body.addEventListener('keydown', handleKeydown);
 
   const delegationContainer = document.querySelector('#delegation');
   delegationContainer.addEventListener('click', handleDelegation);
