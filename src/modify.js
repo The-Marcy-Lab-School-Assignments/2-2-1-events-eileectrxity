@@ -56,7 +56,22 @@ const handleDelegation = (event) => {
   if (event.target.matches('button')) resultSpan.textContent = event.target.textContent;
 };
 
-const addNewRandomNumber = () => {
+//QUESTION 5: modify addNewRandomNumber to create a new li with only a random num greater than 0 in it within the #random-numbers ul
+// //working solution with comments- IGNORE
+// const addNewRandomNumber = (event) => {
+//   // console.log('add button just clicked; this is the event:', event, 'the event target:', event.target, 'and the event type:', event.type);
+//   const numbersUl = document.querySelector('#random-numbers');
+//   const li = document.createElement('li'); //creating a new list item when the click event listener on #add-random-num button is triggered
+//   li.textContent = Math.ceil(Math.random()*10); //making list item text a random number greater than 0; specifically any number between an inclusive 1 and an inclusive 10, rounded up to get a whole number while avoiding a 0 int
+//   numbersUl.appendChild(li); //appending newly created list item to #random-numbers unordered list
+// };
+
+// //polished q5 solution simplified without comments
+const addNewRandomNumber = (event) => {
+  const numbersUl = document.querySelector('#random-numbers');
+  const li = document.createElement('li');
+  li.textContent = Math.ceil(Math.random()*10);
+  numbersUl.appendChild(li);
 };
 
 
@@ -77,7 +92,10 @@ const main = () => {
   const delegationContainer = document.querySelector('#delegation');
   delegationContainer.addEventListener('click', handleDelegation);
 
-  
+  //q5: added a 'click' event listener on the #add-random-num button, handling with addNewRandomNumber func
+  const randomNumButton = document.querySelector('#add-random-num');
+  randomNumButton.addEventListener('click', addNewRandomNumber);
+
 };
 
 main();
