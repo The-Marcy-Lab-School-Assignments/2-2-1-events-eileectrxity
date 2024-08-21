@@ -59,6 +59,10 @@ const main = () => {
   //q2: added an event listener on the document body for keydown events, handling with handleKeydown func
   document.body.addEventListener('keydown', handleKeydown);
 
+  //q3: replaced the html inline handler with this regular event listener on #inline-example button node, handling with clickCounterHandler func from q1
+  const inlineButton = document.querySelector('#inline-example');
+  inlineButton.addEventListener('click', clickCounterHandler);
+  
   const delegationContainer = document.querySelector('#delegation');
   delegationContainer.addEventListener('click', handleDelegation);
 
