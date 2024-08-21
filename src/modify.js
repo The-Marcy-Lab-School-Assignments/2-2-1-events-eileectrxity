@@ -96,6 +96,12 @@ const main = () => {
   const randomNumButton = document.querySelector('#add-random-num');
   randomNumButton.addEventListener('click', addNewRandomNumber);
 
+  //q6: added a 'click' event listener on the #remove button, handling with an inline func that removes the event listener on the delegation container (inline to keep code DRY)
+  const removeDelegationButton = document.querySelector('#remove');
+  removeDelegationButton.addEventListener('click', () => {
+    delegationContainer.removeEventListener('click', handleDelegation);
+  });
+
 };
 
 main();
